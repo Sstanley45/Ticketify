@@ -1,38 +1,456 @@
-.App {
-  text-align: center;
+* {
+  margin: 5px;
+  background-color: white;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
+  height: 150px;
+  box-shadow: 1px 3px #f7e7e7;
+  margin: 10px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  width: 100%;
+}
+.MainbannerImg {
+  background-image: url("../src//assets/image/advbanner.jpg");
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+#upcomingEvents {
+  font-size: 40px;
+  font-weight: 600;
+}
+.eventCard {
+  width: 100%;
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  flex: 0 0 auto; /* ADD */
+  display: flex; /* ADD */
+  flex-direction: column; /* ADD */
+  position: relative;
+  margin-right: 10px;
+  border-radius: 25px;
+}
+
+.footer {
+  box-shadow: 1px 3px #b3afaf;
+}
+
+#tokealogo {
+  height: 130px;
+  width: 130px;
+}
+.eventicons {
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+}
+.eventicons-banner {
+  height: 25px;
+  width: 25px;
+  margin-left: 12px;
+  background-color: rgba(247, 230, 230, 0.897);
+}
+.eventiconsdiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.eachicon :hover {
+  cursor: pointer;
+  background-color: rgb(243, 212, 212);
+}
+.eachicon-banner {
+  background-color: rgba(247, 230, 230, 0.897);
+  padding: 5px;
+  border-radius: 20%;
+  cursor: pointer;
+  height: 90px;
+}
+#loginbtn {
+  margin-right: 40px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: 400px;
+}
+.icontext {
+  text-align: center;
+  font-size: 20px;
+}
+.icontext-banner {
+  background-color: rgba(247, 230, 230, 0.897);
+  font-size: 13px;
+}
+.icontext :hover {
+  background-color: none;
+}
+.smallScreenBanner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.addminus-icon{
+  width: 25px;
+  height: 25px;
+}
+.td-style{
+  display:flex; 
+}
+
+.blurrow :disabled{
+  background: #ccc;
+  opacity: 0.5;
+}
+
+.gaterow{
+    opacity: 0.6;
+}
+
+.eventCardImg {
+  width: 100%;
+  border-radius: 10px;
+  margin-left: 0px;
+  height: auto;
+}
+.moreInfoSection {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+}
+.moreInfoDiv {
+  width: 700px;
+  height: auto;
+  box-shadow: 0px 0px 0.4564px rgba(0, 0, 0, 0.1);
+  margin-right: 0px;
+  border-radius: 25px;
+}
+.priceTable{
+  border: 1px solid #f7e7e7;
+  padding: 50px;
+  border-radius: 20px;
+
+}
+
+.priceTable td{
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  width: 300px;
+}
+.priceInput {
+  border: 1px solid #f5baba;
+  border-radius: 10px;
+  padding: 5px;
+  width: 70px;
+  font-size: 20px;
+}
+input[type=text]:focus{
+  border:2px solid rgb(243, 117, 117)
+}
+
+.policyText{
+  font-size: 12px;
+  color:  rgb(128, 122, 122);
+}
+.moreInfoImg{
+  width: 500px;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+}
+
+.eventCardImg {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  height: auto;
+}
+#eventCardTable {
+  border-collapse: separate;
+  border-spacing: 20px 0;
+}
+#eventCardTable tr:not(:last-child) td {
+  padding-top: 0.04em;
+}
+#eventCardTable tr:nth-child(2) td {
+  padding-top: 0;
+}
+.redtext {
+  color: rgb(153, 11, 11);
+}
+.displayPay{
+  display: none;
+}
+
+.signupf {
+  display: block;
+}
+.Signupform{
+    background-color: #000;
+    background-image: url(https://tokeabucket.s3.us-east-2.amazonaws.com/tokea/tokea-bg-01.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    margin: 0px;
+
+    height: 100vh;
+    overflow-x: hidden;
+
+}
+
+
+
+.signupcontainer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.signupblock{
+    padding: 1.5rem;
+    opacity: 1;
+    background-color: rgb(255 255 255);
+    border-bottom-width: 1px;
+    border-radius: 0.5rem;
+    margin-top: 6rem;
+}
+
+.signuptitle {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+   
+}
+
+.signuplabel {
+  font-weight: 500;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: large;
+    font-weight: bolder;
+}
+ 
+
+
+.signupinput {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-color: rgb(209 213 219);
+    border-width: 1px;
+    border-radius: 0.75rem;
+    width: 100%;
+    display: block;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: inherit;
+    color: inherit;
+   
+}
+
+.signupbtn {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  color: rgb(255 255 255);
+  font-weight: 500;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: rgb(185 28 28);
+  border-radius: 0.75rem;
+  width: 100%;
+  cursor: pointer;
+  background-image: none;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+}
+
+/*social media icons styling*/
+.fa {
+  padding: 15px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+
+
+.fa-facebook {
+  background: #808080;
+  color: blue;
+}
+
+.fa-twitter {
+  background: #808080;;
+  color:lightblue;
+}
+
+.fa-instagram {
+  background: #808080;
+  color: palevioletred;
+}
+
+@media (min-width: 768px) {
+  /*greater than 768px  */
+  .smallScreenBanner {
+    display: none;
+  }
+  .eventCardDiv {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+  }
+  .eventCard {
+    width: 320px;
+    height: auto;
+    box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+    margin-right: 0px;
+    border-radius: 25px;
+  }
+  .btnPurchaseTicket{
+  width: 80%;
+  margin: auto;
+  height: 90px;
+  padding: 15px;
+  font-size: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  background: var(--primary-400);
+  cursor: pointer;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btnPurchaseTicket-text{
+   background: var(--primary-400);
+   padding: 0.1px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.signupblock {
+    padding: 2rem;
+}
+
+.signupblock{
+    border-radius: 0.75rem;
+}
+
+.signupblock {
+    width: 33.333333%;
+}
+
+.signupblock {
+    margin-top: 14rem;
+}
+.signupblock {
+    left: 1.5rem;
+}
+.signupblock {
+    position: absolute; 
+}
+.signupcontainer {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+}
+
+
+@media (max-width: 768px) {
+  /* 768px or less */
+  .navbar {
+  height: 110px;
+  box-shadow:0px 1px #f7e7e7;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#loginbtn {
+  margin-right: 5px;
+  height: 39px;
+  font-size: 15px;
+  font-weight: 300px;
+}
+#tokealogo {
+  height: 80px;
+  width: 80px;
+}
+  .eventiconsdiv {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
-  }
+  .moreInfoSection {
+  display:block ; 
+}
+.moreInfoImg{
+  width: 100%;
+  margin: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+}
+.priceTable{
+  
+  border: none;
+  padding: 1px;
+  margin: 0px;
+  font-size: 12px;
+  
+}
+.priceInput {
+  border: 1px solid #f5baba;
+  border-radius: 8px;
+  padding: 3px;
+  width: 35px;
+  font-size: 15px;
+
+}
+.btnPurchaseTicket{
+  width: 100%;
+  padding: 10px;
+  font-size: 19px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  background: var(--primary-400);
+  cursor: pointer;
+  color: white;
+  height: 50px;
+}
+
+.btnPurchaseTicket-text{
+   background: var(--primary-400);
+   padding: 0.1px;
+}
+.addminus-icon{
+  width: 20px;
+  height: 20px;
+}
+.moreInfoDiv {
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 0px 0.4564px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+}
 }
