@@ -1,11 +1,14 @@
 import React from "react";
 import {Link} from 'react-router-dom'
+import Payment from "../pages/Payment";
 
 const EventCard = (props) => {
+ 
+
   return (
     <>
       <div className="eventCard">
-        <Link to={`/${props.id}`}>
+        <Link to={`/${props.id}`}> 
           <img className="eventCardImg " src={props.img} alt="img" />
         </Link>
         <table id="eventCardTable">
@@ -30,7 +33,7 @@ const EventCard = (props) => {
             <td></td>
             <td>
               <Link to={`/${props.id}`}>
-                <button className="btn btn-danger">Buy Tickets</button>   
+                <button className="btn btn-danger">Buy Tickets</button>
               </Link>
             </td>
           </tr>

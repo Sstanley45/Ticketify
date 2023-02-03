@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link,useParams } from "react-router-dom";
 import minus from "../assets/image/minus.png";
 import add from "../assets/image/add.png";
 
@@ -26,15 +26,17 @@ const Prices = () => {
     setTotalCost(advanceTotal + groupTotal);
   }, [advanceTotal, groupTotal]);
 
+  const {id} = useParams()
   const navigate = useNavigate();
-  const handlePurchasebtn = () => {
-    if (totalCost > 0) {
-      navigate("/Payment");
-    } else {
-      setShowAlert(true);
-      clearAlert();
-    }
-  };
+
+   const handlePurchasebtn = () => {
+     if (totalCost > 0) {
+       navigate(`/Payment/${id}`); 
+     } else {
+       setShowAlert(true);
+       clearAlert();
+     }
+   };
 
   const clearAlert = () => {
     setTimeout(() => {
