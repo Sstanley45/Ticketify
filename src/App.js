@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MoreInfo from './pages/MoreInfo';
 import TermsConditions from './pages/TermsConditions';
 import Signup from './pages/SignUp';
+import Payment from './pages/Payment';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/:id' element={<MoreInfo />}></Route>
         <Route path='/TermsConditions' element={<TermsConditions />}></Route>
         <Route path='/auth/signup' element={<Signup />} ></Route>
+        <Route path ="/Payment" element={<Payment />}></Route>
       </Routes>
     </Router>
   );

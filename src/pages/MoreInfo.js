@@ -13,6 +13,8 @@ const MoreInfo = () => {
     const singleEvent = Data.find((event) => event.id === parseInt(id));
     setSelectedEvent(singleEvent);
   }, [id]);
+
+  
   return (
     <>
       <Navbar />

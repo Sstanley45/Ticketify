@@ -10,7 +10,6 @@ const Landing = () => {
   return (
     <>
       <Navbar />
-
       <MainBanner />
       <SmallScreenBanner />
       <h1 id="upcomingEvents">Upcoming events</h1>
