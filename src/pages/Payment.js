@@ -2,12 +2,24 @@ import React from 'react'
 import Navbar from "../components/Navbar.js"
 import Footer from "../components/Footer"
 import backIcon from '../assets/image/back.png'
+import { Link, useParams } from 'react-router-dom'
 
-const Payment = () => {
+
+
+const Payment = (props) => {
+  const {id} = useParams()
+ 
   return (
     <>
       <Navbar />
-      <h1> <img src={backIcon} alt="" className='backIcon' /> Complete Payment</h1>
+      <h1>
+        <Link to={`/${id}`}>
+          <img src={backIcon} alt="" className="backIcon" /> 
+        </Link>
+        
+        
+        Complete Payment
+      </h1>
       <div className="pay-form">
         <h4>
           <b>Choose payment method</b>

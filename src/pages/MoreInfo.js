@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import { useParams } from "react-router-dom";
+import { useParams ,Link} from "react-router-dom";
 import { Data } from "../components/data.js";
 import Prices from "../components/Prices";
 import Footer from "../components/Footer";
+import home from '../assets/image/home.png'
+
 
 const MoreInfo = () => {
   const { id } = useParams();
-  const [selectedEvent, setSelectedEvent] = useState('');
+  const [selectedEvent, setSelectedEvent] = useState(''); 
 
+  
   useEffect(() => {
     const singleEvent = Data.find((event) => event.id === parseInt(id));
     setSelectedEvent(singleEvent);
@@ -47,14 +50,23 @@ const MoreInfo = () => {
                 <p>{selectedEvent.description}</p>
               </td>
             </tr>
+            <tr>
+              <td></td>
+              <td>
+                {" "}
+                <Link to="/">
+                  <img src={home} alt="" />
+                </Link> Back
+              </td>
+            </tr>
           </table>
         </div>
 
-       <Prices />
+        <Prices />
       </section>
       <Footer />
     </>
   );
 };
-
-export default MoreInfo;
+      
+export default MoreInfo ;
