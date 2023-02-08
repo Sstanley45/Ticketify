@@ -4,12 +4,13 @@ import {
   ADVANCE_TOTAL_VALUE,
   GROUP_TOTAL_VALUE,
   TOTAL_COST_VALUE,
-    ADVANCE_PRICE_INPUT_VALUE,
+  ADVANCE_PRICE_INPUT_VALUE,
   GROUP_PRICE_INPUT_VALUE,
   INCREMENT_ADVANCE_VALUE,
   DECREMENT_ADVANCE_VALUE,
   INCREMENT_GROUP_VALUE,
   DECREMENT_GROUP_VALUE,
+  SELECTED_TICKETS,
 } from "./action";
 
 const reducer = (state, action) => {
@@ -75,8 +76,14 @@ const reducer = (state, action) => {
           groupPriceInput: action.payload,
         };
     }
-
-      throw new Error(`no action of type ${action.type}`);
+  if (action.type === SELECTED_TICKETS) {
+    return {
+      ...state,
+      toggleNavigate:true,
+      ticketToPay: [...state.ticketToPay, action.payload],
+    };
+  }
+    throw new Error(`no action of type ${action.type}`);
     
 }
 

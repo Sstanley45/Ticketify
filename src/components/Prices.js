@@ -26,6 +26,8 @@ const Prices = () => {
     decrementAdvanceInput,
     incrementGroupPrice,
     decrementGroupPrice,
+    handlebtnPay,
+    toggleNavigate,
   } = useContext(PriceContext);                              
 
 
@@ -46,15 +48,19 @@ const Prices = () => {
   const {id} = useParams()
   const navigate = useNavigate();
 
-   const handlePurchasebtn = () => {
-     if (totalCost > 0) {
-       navigate(`/Payment/${id}`); 
-     } else {
-       displayAlert() 
-     }
-   };
+  //  const handlePurchasebtn = () => {
+  //    if (totalCost > 0) {
+  //      navigate(`/Payment/${id}`); 
+  //    } else {
+  //      displayAlert() 
+  //    }
+  //  };
 
-        
+  useEffect(() => {
+    {
+      toggleNavigate && navigate(`/Payment/${id}`);
+    }
+  }, [handlebtnPay]);  
 
   return (
     <>
@@ -94,8 +100,7 @@ const Prices = () => {
                     pattern="[0-9]*"
                     name="advanceInput"
                     value={advancePriceInput}
-                    onChange={(e) =>
-                      getAdvancePriceInputValue(e)}
+                    onChange={(e) => getAdvancePriceInputValue(e)}
                   />
                 </div>
                 <div>
@@ -157,8 +162,7 @@ const Prices = () => {
                     type="text"
                     pattern="[0-9]*"
                     value={groupPriceInput}
-                    onChange={(e) =>
-                      getGroupPriceInputValue(e)}
+                    onChange={(e) => getGroupPriceInputValue(e)}
                   />
                 </div>
                 <div>
@@ -206,7 +210,7 @@ const Prices = () => {
           {/* set up Logic to check if atleast one ticket is selected */}
           <div className="alert-space">{showAlert && <Alert />}</div>
 
-          <button className=" btnPurchaseTicket" onClick={handlePurchasebtn}>
+          <button className=" btnPurchaseTicket" onClick={()=> handlebtnPay()}>
             <p className="btnPurchaseTicket-text">Purchase Ticket</p>
             <p
               className={`btnPurchaseTicket-text ${

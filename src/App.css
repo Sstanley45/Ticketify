@@ -355,7 +355,7 @@ input[type=text]:focus{
   font-family: inherit;
    border: 1px solid var(--grey-200);
 }
-.mpesa-visa-btn-display:hover{
+.mpesa-visa-btn-display:focus{
   background: #000;
   color: white;
 }

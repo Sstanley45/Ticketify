@@ -8,7 +8,7 @@ import Payment from './pages/Payment';
 
 function App() {
   return (
-    <Router>
+    
       <Routes>
         <Route exact path="/" element={<Landing />}></Route>
         <Route path='/:id' element={<MoreInfo />}></Route>
@@ -16,7 +16,7 @@ function App() {
         <Route path='/auth/signup' element={<Signup />} ></Route>
         <Route path ='/Payment/:id' element={<Payment />}></Route>    
       </Routes>
-    </Router>
+    
   );
 }
 
