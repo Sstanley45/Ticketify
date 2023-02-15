@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from "../components/Navbar.js"
 import Footer from "../components/Footer"
 import backIcon from '../assets/image/back.png'
 import { Link, useParams } from 'react-router-dom'
 import TicketDetails from '../components/TicketDetails.js'
+import { PriceContext } from '../contexts/appContext.js'
 
 
 
 const Payment = (props) => {
+  const { hidePaymentPage } = useContext(PriceContext)
+
+  const backLink = () => {
+    hidePaymentPage()
+    React.forceUpdate()
+  }
   const {id} = useParams()
  
   return (
@@ -16,7 +23,10 @@ const Payment = (props) => {
       <section className="paymentPage">
         <div>
           <h1>
-            <Link to={`/${id}`}>
+            <Link
+              to={`/${id}`}
+              onClick={()=>backLink()}
+            >
               <img src={backIcon} alt="" className="backIcon" />
             </Link>
             Complete Payment
@@ -42,6 +52,7 @@ const Payment = (props) => {
               type="tel"
               placeholder="07xxxxxxxx"
               className="pay-form-input"
+              required='true'
             />
             <div>
               <label htmlFor="email" className="pay-form-label">
@@ -51,6 +62,7 @@ const Payment = (props) => {
                 type="email"
                 placeholder="example@email.com"
                 className="pay-form-input"
+                required
               />
             </div>
             <br />
@@ -58,7 +70,7 @@ const Payment = (props) => {
           </div>
         </div>
         <div>
-        <TicketDetails  />
+          <TicketDetails />
         </div>
       </section>
       <Footer />

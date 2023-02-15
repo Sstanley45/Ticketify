@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useReducer } from "react";
 import reducer from "./reducer";
 import {
   DISPLAY_ALERT,
@@ -13,6 +13,7 @@ import {
   INCREMENT_GROUP_VALUE,
   DECREMENT_GROUP_VALUE,
   SELECTED_TICKETS,
+  HIDE_PAYMENT_PAGE,
 } from "./action";
 
 
@@ -126,6 +127,9 @@ const AppProvider = ({ children }) => {
       displayAlert()
     }
   };
+  const hidePaymentPage = () => {
+    dispatch({ type: HIDE_PAYMENT_PAGE });
+  }
 
   return (
     <PriceContext.Provider
@@ -143,6 +147,7 @@ const AppProvider = ({ children }) => {
         incrementGroupPrice,
         decrementGroupPrice,
         handlebtnPay,
+        hidePaymentPage,
       }}
     >
       {children}

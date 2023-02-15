@@ -97,6 +97,7 @@ const Prices = () => {
                   <input
                     className="priceInput"
                     type="text"
+                    
                     pattern="[0-9]*"
                     name="advanceInput"
                     value={advancePriceInput}
@@ -160,6 +161,7 @@ const Prices = () => {
                   <input
                     className="priceInput"
                     type="text"
+                    
                     pattern="[0-9]*"
                     value={groupPriceInput}
                     onChange={(e) => getGroupPriceInputValue(e)}

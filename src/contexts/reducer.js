@@ -11,6 +11,7 @@ import {
   INCREMENT_GROUP_VALUE,
   DECREMENT_GROUP_VALUE,
   SELECTED_TICKETS,
+  HIDE_PAYMENT_PAGE,
 } from "./action";
 
 const reducer = (state, action) => {
@@ -83,6 +84,12 @@ const reducer = (state, action) => {
       ticketToPay: [...state.ticketToPay, action.payload],
     };
   }
+  if (action.type === HIDE_PAYMENT_PAGE) {
+    return {
+      ...state,
+      toggleNavigate: false,
+    }
+  } 
     throw new Error(`no action of type ${action.type}`);
     
 }
