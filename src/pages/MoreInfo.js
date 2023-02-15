@@ -54,7 +54,7 @@ const MoreInfo = () => {
               <td></td>
               <td>
                 {" "}
-                <Link to="/">
+                <Link to="/" onClick={()=> React.forceUpdate()}>
                   <img src={home} alt="" />
                 </Link> Back
               </td>

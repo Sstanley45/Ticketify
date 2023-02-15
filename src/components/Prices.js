@@ -1,48 +1,66 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { useNavigate, Link,useParams } from "react-router-dom";
 import minus from "../assets/image/minus.png";
 import add from "../assets/image/add.png";
+import { PriceContext } from "../contexts/appContext";
+import Alert from "./Alert";
+
 
 const Prices = () => {
-  const [advance, setAdvance] = useState(1000);
-  const [advanceTotal, setAdvanceTotal] = useState();
-  const [group, setGroup] = useState(4500);
-  const [groupTotal, setGroupTotal] = useState();
-  const [totalCost, setTotalCost] = useState(0);
+  const {
+    advance,
+    advancePriceInput,
+    displayAlert,
+    showAlert,
+    group,
+    groupPriceInput,
+    advanceTotal,
+    groupTotal,
+    totalCost,
+    calcAdvanceTotal,
+    calcGroupTotal,
+    calcTotalCost,
+    getAdvancePriceInputValue,
+    getGroupPriceInputValue,
+    incrementAdvanceInput,
+    decrementAdvanceInput,
+    incrementGroupPrice,
+    decrementGroupPrice,
+    handlebtnPay,
+    toggleNavigate,
+  } = useContext(PriceContext);                              
 
-  const [advancePriceInput, setAdvancePriceInput] = useState(0);
-  const [groupPriceInput, setGroupPriceInput] = useState(0);
-  const [showAlert, setShowAlert] = useState(false);
+
+
 
   useEffect(() => {
-    setAdvanceTotal(advance * advancePriceInput);
+    calcAdvanceTotal()
   }, [advancePriceInput]);
 
   useEffect(() => {
-    setGroupTotal(group * groupPriceInput);
+     calcGroupTotal()
   }, [groupPriceInput]);
 
   useEffect(() => {
-    setTotalCost(advanceTotal + groupTotal);
+    calcTotalCost()
   }, [advanceTotal, groupTotal]);
 
   const {id} = useParams()
   const navigate = useNavigate();
 
-   const handlePurchasebtn = () => {
-     if (totalCost > 0) {
-       navigate(`/Payment/${id}`); 
-     } else {
-       setShowAlert(true);
-       clearAlert();
-     }
-   };
+  //  const handlePurchasebtn = () => {
+  //    if (totalCost > 0) {
+  //      navigate(`/Payment/${id}`); 
+  //    } else {
+  //      displayAlert() 
+  //    }
+  //  };
 
-  const clearAlert = () => {
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 4000);
-  };
+  useEffect(() => {
+    {
+      toggleNavigate && navigate(`/Payment/${id}`);
+    }
+  }, [handlebtnPay]);  
 
   return (
     <>
@@ -69,7 +87,7 @@ const Prices = () => {
                 <div>
                   <img
                     className="addminus-icon"
-                    onClick={(e) => setAdvancePriceInput(advancePriceInput + 1)}
+                    onClick={() => incrementAdvanceInput()}
                     src={add}
                     alt=""
                   />
@@ -79,29 +97,18 @@ const Prices = () => {
                   <input
                     className="priceInput"
                     type="text"
+                    
                     pattern="[0-9]*"
                     name="advanceInput"
                     value={advancePriceInput}
-                    onChange={(e) =>
-                      setAdvancePriceInput((v) =>
-                        e.target.validity.valid ? Number(e.target.value) : v
-                      )
-                    }
+                    onChange={(e) => getAdvancePriceInputValue(e)}
                   />
                 </div>
                 <div>
                   <img
                     className="addminus-icon"
                     src={minus}
-                    onClick={(e) =>
-                      setAdvancePriceInput((prevState) => {
-                        if (prevState > 0) {
-                          return prevState - 1;
-                        } else {
-                          return setAdvancePriceInput(0);
-                        }
-                      })
-                    }
+                    onClick={() => decrementAdvanceInput()}
                     alt=""
                   />
                 </div>
@@ -145,7 +152,7 @@ const Prices = () => {
                 <div>
                   <img
                     className="addminus-icon"
-                    onClick={(e) => setGroupPriceInput(groupPriceInput + 1)}
+                    onClick={() => incrementGroupPrice()}
                     src={add}
                     alt=""
                   />
@@ -154,28 +161,17 @@ const Prices = () => {
                   <input
                     className="priceInput"
                     type="text"
+                    
                     pattern="[0-9]*"
                     value={groupPriceInput}
-                    onChange={(e) =>
-                      setGroupPriceInput((v) =>
-                        e.target.validity.valid ? Number(e.target.value) : v
-                      )
-                    }
+                    onChange={(e) => getGroupPriceInputValue(e)}
                   />
                 </div>
                 <div>
                   <img
                     src={minus}
                     className="addminus-icon"
-                    onClick={(e) =>
-                      setGroupPriceInput((prevGroupPriceInput) => {
-                        if (prevGroupPriceInput > 0) {
-                          return prevGroupPriceInput - 1;
-                        } else {
-                          return setGroupPriceInput(0);
-                        }
-                      })
-                    }
+                    onClick={() => decrementGroupPrice()}
                     alt=""
                   />
                 </div>
@@ -214,15 +210,9 @@ const Prices = () => {
           </p>
 
           {/* set up Logic to check if atleast one ticket is selected */}
-          <div className="alert-space">
-            {showAlert && (
-              <p className="alert-purchase-btn">
-                Please select at least One Ticket to proceed.
-              </p>
-            )}
-          </div>
+          <div className="alert-space">{showAlert && <Alert />}</div>
 
-          <button className=" btnPurchaseTicket" onClick={handlePurchasebtn}>
+          <button className=" btnPurchaseTicket" onClick={()=> handlebtnPay()}>
             <p className="btnPurchaseTicket-text">Purchase Ticket</p>
             <p
               className={`btnPurchaseTicket-text ${

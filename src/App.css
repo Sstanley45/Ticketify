@@ -355,7 +355,7 @@ input[type=text]:focus{
   font-family: inherit;
    border: 1px solid var(--grey-200);
 }
-.mpesa-visa-btn-display:hover{
+.mpesa-visa-btn-display:focus{
   background: #000;
   color: white;
 }
@@ -372,6 +372,11 @@ input[type=text]:focus{
 .backIcon{
   width: 40px;
   height: 40px;
+}
+.paymentPage{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
 }
 
 @media (min-width: 768px) {
@@ -442,6 +447,11 @@ input[type=text]:focus{
   padding: 50px;
   border-radius: 20px;
   height: 60vh;
+}
+.payment-table{
+  width: 700px;
+  margin: 100px;
+  height: 40vh;
 }
 }
 
@@ -525,5 +535,8 @@ input[type=text]:focus{
 .backIcon{
   width: 30px;
   height: 30px;
+}
+.show-on-large-screen{
+  display: none;
 }
 }
