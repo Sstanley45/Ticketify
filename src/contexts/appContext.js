@@ -14,6 +14,8 @@ import {
   DECREMENT_GROUP_VALUE,
   SELECTED_TICKETS,
   HIDE_PAYMENT_PAGE,
+  DISPLAY_PROCESSING_FEE,
+  HIDE_PROCESSING_FEE,
 } from "./action";
 
 
@@ -27,6 +29,8 @@ const initialState = {
   advanceTotal: 0,
   groupTotal: 0,
   totalCost: 0,
+  masterCard:false,
+  ProcessingFee:0,
   advancePriceInput: 0,
   groupPriceInput: 0,
   ticketToPay: [],
@@ -45,7 +49,7 @@ const AppProvider = ({ children }) => {
   const displayAlert = () => {
     dispatch({ type: DISPLAY_ALERT });
     setTimeout(() => {
-      clearAlert();
+       clearAlert();
     }, 4000);
   };
   const clearAlert = () => {
@@ -114,7 +118,7 @@ const AppProvider = ({ children }) => {
       dispatch({ type: SELECTED_TICKETS, payload: selectedTicket });
      
     }
-    if (state.groupPriceInput) {
+   else if (state.groupPriceInput) {
       const selectedTicket = {
         name: "Group of 5",
         cost: 4500,
@@ -130,6 +134,14 @@ const AppProvider = ({ children }) => {
   const hidePaymentPage = () => {
     dispatch({ type: HIDE_PAYMENT_PAGE });
   }
+  const displayProcessingFee = () => {
+    let fee = Math.round(0.035*state.totalCost)
+    dispatch({ type: DISPLAY_PROCESSING_FEE, payload:fee }); 
+  }
+   const hideProcessingFee = () => {
+     let fee = 0
+     dispatch({ type: HIDE_PROCESSING_FEE, payload: fee });
+   };
 
   return (
     <PriceContext.Provider
@@ -148,6 +160,8 @@ const AppProvider = ({ children }) => {
         decrementGroupPrice,
         handlebtnPay,
         hidePaymentPage,
+        displayProcessingFee,
+        hideProcessingFee,
       }}
     >
       {children}

@@ -9,7 +9,8 @@ import { PriceContext } from '../contexts/appContext.js'
 
 
 const Payment = (props) => {
-  const { hidePaymentPage } = useContext(PriceContext)
+  const { hidePaymentPage, displayProcessingFee, hideProcessingFee } =
+    useContext(PriceContext);
 
   const backLink = () => {
     hidePaymentPage()
@@ -23,10 +24,7 @@ const Payment = (props) => {
       <section className="paymentPage">
         <div>
           <h1>
-            <Link
-              to={`/${id}`}
-              onClick={()=>backLink()}
-            >
+            <Link to={`/${id}`} onClick={() => backLink()}>
               <img src={backIcon} alt="" className="backIcon" />
             </Link>
             Complete Payment
@@ -37,10 +35,18 @@ const Payment = (props) => {
             </h4>
             <div className="mpesa-visa-btn">
               <div>
-                <button className="mpesa-visa-btn-display">MPESA</button>
+                <button
+                  className="mpesa-visa-btn-display"
+                  onClick={hideProcessingFee}
+                >
+                  MPESA
+                </button>
               </div>
               <div>
-                <button className="mpesa-visa-btn-display">
+                <button
+                  className="mpesa-visa-btn-display"
+                  onClick={displayProcessingFee}
+                >
                   VISA/Mastercard
                 </button>
               </div>
@@ -52,7 +58,7 @@ const Payment = (props) => {
               type="tel"
               placeholder="07xxxxxxxx"
               className="pay-form-input"
-              required='true'
+              required="true"
             />
             <div>
               <label htmlFor="email" className="pay-form-label">

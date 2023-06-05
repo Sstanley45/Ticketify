@@ -12,6 +12,8 @@ import {
   DECREMENT_GROUP_VALUE,
   SELECTED_TICKETS,
   HIDE_PAYMENT_PAGE,
+  DISPLAY_PROCESSING_FEE,
+  HIDE_PROCESSING_FEE,
 } from "./action";
 
 const reducer = (state, action) => {
@@ -80,7 +82,8 @@ const reducer = (state, action) => {
   if (action.type === SELECTED_TICKETS) {
     return {
       ...state,
-      toggleNavigate:true,
+      toggleNavigate: true,
+      isLoading: true, 
       ticketToPay: [...state.ticketToPay, action.payload],
     };
   }
@@ -90,6 +93,20 @@ const reducer = (state, action) => {
       toggleNavigate: false,
     }
   } 
+  if (action.type === DISPLAY_PROCESSING_FEE) {
+    return {
+      ...state,
+      masterCard: true,
+      ProcessingFee:action.payload,
+    };
+  }
+    if (action.type === HIDE_PROCESSING_FEE) {
+      return {
+        ...state,
+        masterCard:false,                                                           
+        ProcessingFee: action.payload,
+      };
+    }
     throw new Error(`no action of type ${action.type}`);
     
 }

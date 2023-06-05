@@ -6,7 +6,7 @@ import { PriceContext } from '../contexts/appContext'
 const Alert = () => {
 const {alertType, alertText} = useContext(PriceContext)
   return (
-      <div className={`alert-${alertType}`}>{alertText }</div>
+      <div className={` style-alert alert-${alertType}`}>{alertText }</div>
   )
 }
 
