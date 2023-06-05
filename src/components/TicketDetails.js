@@ -2,10 +2,7 @@ import React, { useContext } from "react";
 import { PriceContext } from "../contexts/appContext";
 
 const TicketDetails = () => {
-  const {
-    totalCost,
-    ticketToPay,
-  } = useContext(PriceContext);
+  const { totalCost, ticketToPay, ProcessingFee, masterCard } = useContext(PriceContext);
 
   return (
     <>
@@ -22,20 +19,20 @@ const TicketDetails = () => {
           <td>Quantity</td>
           <td>Sub Total</td>
         </tr>
-        
-          {ticketToPay.map((ticket) => {
-            return (
-              <>
-                <tr>
+
+        {ticketToPay.map((ticket) => {
+          return (
+            <>
+              <tr>
                 <td>{ticket.name}</td>
                 <td>{ticket.cost}</td>
                 <td>{ticket.quantity}</td>
                 <td>{ticket.subTotal}</td>
-                </tr>
-              </>
-            );
-          })}
-        
+              </tr>
+            </>
+          );
+        })}
+
         <tr>
           <td>
             <h5>Discount</h5>
@@ -46,6 +43,16 @@ const TicketDetails = () => {
             <b>Kes. 0</b>
           </td>
         </tr>
+        {masterCard && (
+          <tr>
+            <td>
+              <h5>Processing Fee</h5>
+            </td>
+            <td></td>
+            <td></td>
+            <td>{ProcessingFee}</td>
+          </tr>
+        )}                  
         <tr>
           <td>
             <h5>Total</h5>
@@ -53,7 +60,7 @@ const TicketDetails = () => {
           <td></td>
           <td></td>
           <td>
-            <b>{totalCost}</b>
+            <b>KES {Number(totalCost + ProcessingFee).toLocaleString("en")}</b>
           </td>
         </tr>
       </table>

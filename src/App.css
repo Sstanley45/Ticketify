@@ -378,6 +378,11 @@ input[type=text]:focus{
   grid-template-columns: auto auto;
   gap: 10px;
 }
+.style-alert{
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+}
 
 @media (min-width: 768px) {
   /*greater than 768px  */

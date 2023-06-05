@@ -11,6 +11,7 @@ const Prices = () => {
     advance,
     advancePriceInput,
     displayAlert,
+    isLoading,
     showAlert,
     group,
     groupPriceInput,
@@ -57,9 +58,11 @@ const Prices = () => {
   //  };
 
   useEffect(() => {
-    {
-      toggleNavigate && navigate(`/Payment/${id}`);
-    }
+    setTimeout(() => {
+      {
+        toggleNavigate && navigate(`/Payment/${id}`);
+      }
+  },2000)
   }, [handlebtnPay]);  
 
   return (
@@ -97,7 +100,6 @@ const Prices = () => {
                   <input
                     className="priceInput"
                     type="text"
-                    
                     pattern="[0-9]*"
                     name="advanceInput"
                     value={advancePriceInput}
@@ -161,7 +163,6 @@ const Prices = () => {
                   <input
                     className="priceInput"
                     type="text"
-                    
                     pattern="[0-9]*"
                     value={groupPriceInput}
                     onChange={(e) => getGroupPriceInputValue(e)}
@@ -210,10 +211,12 @@ const Prices = () => {
           </p>
 
           {/* set up Logic to check if atleast one ticket is selected */}
-          <div className="alert-space">{showAlert && <Alert />}</div>
-
-          <button className=" btnPurchaseTicket" onClick={()=> handlebtnPay()}>
-            <p className="btnPurchaseTicket-text">Purchase Ticket</p>
+          <Alert />
+          
+          <button className=" btnPurchaseTicket" onClick={() => handlebtnPay()}>
+            <p className="btnPurchaseTicket-text">
+              {isLoading ? "please wait ..." : "Purchase Ticket"}
+            </p>
             <p
               className={`btnPurchaseTicket-text ${
                 totalCost === 0 ? "displayPay" : ""
