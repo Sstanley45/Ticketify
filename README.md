@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Ticketify App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an event booking app created with the ReactJS library. The app allows users to navigate through a variety of upcoming events, view their dates, venues, and locations through visually designed images. Users can also calculate the cost of events based on the selected event and the number of tickets.
+How It's Made
 
-## Available Scripts
+The app is built using ReactJS, a popular JavaScript library for building user interfaces. ReactJS provides a component-based architecture, allowing for the creation of reusable UI components and efficient rendering of dynamic content. The app utilizes React's features such as Context API, React Routes, and the useParams hook for enhanced navigation and data management.
 
-In the project directory, you can run:
+# Tech used
 
-### `npm start`
+ReactJS
+Context API
+React Routes
+useParams hook
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Functionality
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The Ticketify app provides the following functionality:
 
-### `npm test`
+Event Navigation: Users can browse through a variety of upcoming events. Each event is presented with its date, venue, and location, accompanied by visually designed images to enhance the user experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ticket Cost Calculation: Users can select an event and specify the number of tickets they wish to purchase. The app calculates the total cost based on the selected event's ticket price and the chosen quantity.
 
-### `npm run build`
+Single Event Page: The app utilizes React Routes and the useParams hook to enable navigation to a dedicated page for each event. Users can access more detailed information about a specific event, including additional images, descriptions, and other relevant details.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# What I Have Learned
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+During the development of this Event Booking app, I have gained valuable knowledge and experience in the following areas:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ReactJS: I have furthered my understanding of ReactJS and its component-based architecture, allowing for reusable and efficient UI development.
 
-### `npm run eject`
+Context API: I have utilized the Context API to manage global state and provide data and functionality across different components without the need for prop drilling.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+React Routes: I have implemented React Routes to enable navigation between different pages and facilitate a smooth user experience in the app.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+useParams Hook: I have utilized the useParams hook to extract parameters from the URL and dynamically retrieve data for a specific event page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+By working on this project, I have improved my skills in ReactJS development, learned how to manage application state using Context API, implemented navigation using React Routes, and leveraged the useParams hook for dynamic content retrieval.
